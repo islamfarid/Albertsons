@@ -9,14 +9,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.albertsons.databinding.ActivityInitialismFormBinding
 import com.example.albertsons.initialismform.extensions.textChanges
 import com.example.albertsons.initialismform.models.ui.InitialismUiState
-import com.example.albertsons.initialismform.ui.InitialismSearchViewModel.Companion.DEBOUNCE
+import com.example.albertsons.initialismform.ui.InitialismTSearchViewModel.Companion.DEBOUNCE
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.*
 
 @AndroidEntryPoint
 class InitialismSearchActivity : AppCompatActivity() {
     private lateinit var binding: ActivityInitialismFormBinding
-    private val initialismSearchViewModel: InitialismSearchViewModel by viewModels()
+    private val initialismSearchViewModel: InitialismTSearchViewModel by viewModels()
     lateinit var initialismAdapter : InitialismAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -53,8 +53,8 @@ dependencies {
     //android support
     implementation "androidx.appcompat:appcompat:$appcompatVersion"
     implementation "com.google.android.material:material:$materialVersion"
-    implementation "androidx.activity:activity-ktx:$activityKtxVersion"
-
+    implementation "androidx.activity:activity-ktx:1.6.1"
+    implementation "androidx.fragment:fragment-ktx:1.5.5"
     //coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android"
