@@ -1,0 +1,83 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-platform-android'
+    id 'dagger.hilt.android.plugin'
+    id 'org.jetbrains.kotlin.plugin.serialization'
+}
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.example.Albertsons"
+        minSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    java {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+    namespace 'com.example.albertsons'
+}
+
+dependencies {
+    // Hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+    //android support
+    implementation "androidx.appcompat:appcompat:$appcompatVersion"
+    implementation "com.google.android.material:material:$materialVersion"
+    implementation "androidx.activity:activity-ktx:$activityKtxVersion"
+
+    //coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android"
+
+    //Api Integration
+    implementation "com.squareup.retrofit2:retrofit:${rootProject.retrofitVersion}"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${rootProject.retroftSerializationConverter}"
+    implementation "com.squareup.okhttp3:okhttp:${rootProject.okhttpVersion}"
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${rootProject.serialization_version}")
+
+    implementation "androidx.appcompat:appcompat:$recyclerview"
+    implementation "androidx.recyclerview:recyclerview:$recyclerview"
+    
+    implementation "androidx.room:room-ktx:$room_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:${rootProject.coroutinesVersion}"
+    testImplementation "io.mockk:mockk:${rootProject.mockkVersion}"
+    testImplementation "androidx.arch.core:core-testing:$androidxTestCore"
+
+}
